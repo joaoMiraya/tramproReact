@@ -1,0 +1,25 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+  text-decoration: none;
+  list-style: none;
+  font-family: 'Roboto', sans-serif;
+}
+a{
+  text-decoration: none;
+  list-style: none; 
+  border: none;
+  }
+body{
+  background-color: #EEF1E8;
+}
+
+
+
+
+
+
+
+
+

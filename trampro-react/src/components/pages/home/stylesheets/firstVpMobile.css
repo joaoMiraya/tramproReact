@@ -1,0 +1,97 @@
+.first-viewport-mobile{
+    background-color: rgb(40, 124, 39);
+    height: 100vh;
+    padding-top:15px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    }                                           
+    .search-container-mobile{
+    display:block;
+    flex-direction: column;
+    }
+    .search-box-mobile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    .search-text-mobile{
+      background-color: aliceblue;
+      width: 60%;
+      height: 50px;
+      border-radius: 5px;
+      border: none;
+      font-size: 30px;
+      padding: 5px;
+      outline: none;
+    }
+    .pesquisar-btn{
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    }
+    .search-btnMobile{
+    border-radius: 5px; 
+    width: 60%;
+    height: 50px;
+    background-color: #FDB139;
+     border: none; 
+     cursor: pointer;
+     font-size: 25px;
+     font-weight: bold;
+     color: #DFF6FE;
+     transition: 1s;
+    }
+    .search-btnMobile:hover{
+    background-color: #F55253;
+    }
+    .text-area-main-mobile{
+     display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      text-align: center;
+    }
+    .text-1-mobile,
+    .text-2-mobile{
+    font-size: 40px;
+    margin-top: 40px;
+    color: aliceblue;
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+    }
+    .fazer-mobile,
+    .seuServico-mobile{
+    font-family: 'Dancing Script', cursive;
+    font-size: 60px;
+   
+    color: rgb(253, 177, 57);
+    }
+
+
+
+
+
+
+
+
+
+                              /* MEDIAS QUERIES    */                          
+
+  @media(min-width:1000px){
+    .ul-li-box ul {
+    display: flex;
+    }
+    .search-box{
+    display: flex;
+    }
+    .menu-box{
+    display: none;
+    }
+    .container-desktop{
+    display: flex;
+    }
+    .first-viewport-mobile{
+    display: none;
+    }
+    } 

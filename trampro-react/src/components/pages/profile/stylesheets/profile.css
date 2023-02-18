@@ -1,0 +1,254 @@
+main {
+    margin-bottom: 50px;
+}
+
+.nav-profile-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+    margin-right: 50px;
+}
+
+.logout {
+    color: #062439;
+    transition: .5s ease;
+    cursor: pointer;
+}
+
+.logoutBox .logout:hover {
+    background-color: #06243936;
+    padding: 4px;
+    border-radius: 50%;
+    color: #ff4747;
+}
+
+.btn-trocarAcc-box {
+    margin-right: 45px;
+}
+
+.btn-trocarAcc {
+    background-color: #143F6A;
+    border: none;
+    color: #FFF;
+    font-weight: bold;
+    border-radius: 3px;
+    padding: 10px 15px;
+    transition: .5s;
+}
+
+.btn-trocarAcc:hover {
+    background-color: #47B5FF;
+}
+
+.btn-trocarAcc a {
+    color: #fff;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.mensagens-icon .material-symbols-sharp {
+    margin-right: 15px;
+    cursor: pointer;
+    color: #143F6A;
+    transition: .7s;
+}
+
+.mensagens-icon .material-symbols-sharp:hover {
+    color: #47B5FF;
+    background-color: #06243928;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.paiDeTodos {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: wrap-reverse row-reverse;
+    width: 100vw;
+}
+
+.trampo-container {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: aliceblue;
+    border: 1px solid rgb(185, 185, 185);
+    padding: 10px;
+    width: 330px;
+    height: 400px;
+    margin-top: 30px;
+}
+
+.seus-trampos {
+    text-align: center;
+    font-size: 40px;
+    color: #062439;
+}
+
+.nenhumTrampoTxt {
+    color: #6a6a6a;
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.addTrampoBox {
+    margin-bottom: 30px;
+
+}
+
+.add-trampo {
+    font-size: large;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    background-color: rgb(63, 130, 99);
+    color: aliceblue;
+    padding: 10px 40px 10px 40px;
+    transition: .4s;
+}
+
+.add-trampo:hover {
+    background-color: rgb(72, 207, 174);
+    color: aliceblue;
+    border: rgb(72, 207, 174) 2px solid;
+}
+
+.perfil-container {
+    width: 350px;
+    height: 400px;
+    background-color: aliceblue;
+    border: 1px solid rgb(185, 185, 185);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* INPUT FILE  */
+.addFotoTxt {
+    font-family: 'Roboto', sans-serif;
+    color: #aab0b6;
+    cursor: pointer;
+}
+
+.foto-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00000081;
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    text-align: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.imagemUser img {
+    z-index: 9;
+    width: 250px;
+    height: 350px;
+    border-radius: 50%;
+}
+
+.imagemUser {
+    display: flex;
+    align-items: center;
+    width: 250px;
+    height: 350px;
+}
+
+.imagemUser:hover {
+    display: none;
+}
+
+.material-icons {
+    color: #6A6A6A;
+    transition: .4s;
+}
+
+.edit-icon {
+    margin-left: 85%;
+    margin-top: 5px;
+}
+
+#edit-icon:hover {
+    color: #47B5FF;
+}
+
+.enviarBtnBox {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px;
+}
+
+.enviarBtn {
+    border: none;
+    background-color: #062439;
+    padding: 4px 24px;
+    border-radius: 3px;
+    color: #FFF;
+    cursor: pointer;
+    transition: .5s ease;
+
+}
+
+.enviarBtn:hover {
+    background-color: #062439e5;
+}
+
+.trampos-ativo {
+    margin-top: 15px;
+    padding: 5px 10px;
+    text-align: center;
+    background-color: #3f82638c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 3px;
+
+}
+
+.serviceNameBox p {
+    font-size: 15px;
+    color: #6a6a6a;
+}
+
+.trampos-ativo p {
+    font-size: 20px;
+    font-family: roboto;
+    color: #062439;
+}
+
+.nenhumTrampo-box {
+    text-align: center;
+    background-color: #ff47478a;
+    padding: 8px 0px;
+    border-radius: 3px;
+    margin-top: 15px;
+}
+
+.delete-icon,
+.editService {
+    color: #6A6A6A;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.editService:hover {
+    color: #000000;
+}
+
+.delete-icon:hover {
+    color: #ff4747;
+}
+
+.button-service {
+    background-color: #3f826300;
+    border: none;
+}
