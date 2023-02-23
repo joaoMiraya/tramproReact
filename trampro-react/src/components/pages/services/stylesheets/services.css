@@ -8,7 +8,7 @@
     flex-wrap: wrap;
     justify-content: center;
 }
-a{
+.worker-name a{
     color: #333232;
 }
 
@@ -105,7 +105,7 @@ hr {
 
 .favorite {
     transition: .5s;
-    color: #47B5FF;
+    color: #6a6a6a;
     cursor: pointer;
 }
 
@@ -118,20 +118,17 @@ hr {
     justify-content: center;
     padding: 5px;
     transition: .5s;
-    background-color: #1D6758;
-    border-radius: 20px;
+    background-color: #06293D;
+    border-radius: 1px;
     cursor: pointer;
     margin-top: 10px;
     border: none;
-    text-decoration: none;
+    opacity: .9;
 }
-
-.contratar-btn {
-    background-color: #1D6758;
-    border: none;
+.contratar-box:hover{
+    opacity: 1;
+}
+.contratar-box a {
     text-decoration: none;
-    font-weight: bold;
     color: #FFF;
-    cursor: pointer;
-    list-style: none;
 }

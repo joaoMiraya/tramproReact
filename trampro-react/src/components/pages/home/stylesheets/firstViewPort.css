@@ -86,7 +86,7 @@ opacity: .9;
 
 .fvp-text{
 text-align: center;
-animation: textAnimation 1s ease-in;
+animation: textAnimation 1.5s ease;
 }
 @keyframes textAnimation{
 0%{
@@ -94,9 +94,7 @@ animation: textAnimation 1s ease-in;
   bottom: 400px;
   opacity: 0;
 }
-50%{
-  bottom: 200px;
-}
+
 
 100%{
   bottom: 0px;

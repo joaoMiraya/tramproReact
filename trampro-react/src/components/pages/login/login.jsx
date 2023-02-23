@@ -1,9 +1,21 @@
 import React from "react";
 
+import './stylesheets/login.css';
+
+import LoginForm from "./loginForm";
+import RegisterForm from "./registerForm";
+
 function Login() {
     return (
         <React.Fragment>
-            <h1>Login</h1>
+            <div className="containerLoginMain">
+
+                <div className="registerBox">
+                    < RegisterForm />
+                </div>
+
+
+            </div>
         </React.Fragment>
 
     )

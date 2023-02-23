@@ -1,11 +1,9 @@
 footer{
     position: relative;
     width: 100%;
-    background-color: #3586ff;
     min-height: 100px;
-    padding: 20px 50px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-end;
     align-items: center;
     flex-direction: column;
 }
@@ -13,9 +11,13 @@ footer{
 .menu{
 position: relative;
 display: flex;
+top: 0px;
 justify-content: center;
+align-items: center;
 margin: 0px 0;
 flex-wrap: wrap;
+height: 50px;
+z-index: 2;
 }
 .socialIcons li,
 .menu li{
@@ -25,6 +27,8 @@ list-style: none;
 margin: 0 10px;
 display: inline-block;
 transform: 0.5s;
+z-index: 2;
+
 }
 .socialIcons li:hover{
 transform: translateY(-10px);
@@ -37,19 +41,29 @@ transform: translateY(-10px);
  transform: 0.5s;
  text-decoration: none;
  opacity: 0.7;
+ 
 }
 .menuLi:hover{
     opacity: 1;
+    color: #FFF;
 }
 
 footer p{
     color: #FFF;
     text-align: center;
-    margin-top: 15px;
-    margin-bottom: 10px;
-    font-size: 1.1em;
+    z-index: 99999;
+
+}
+ a{
+    color: #fff;
 }
 .wave{
 position: relative;
-top: 70px;
+top: 143px;
+height: 100%;
+z-index: 1;
+}
+#MaskWave{
+background: linear-gradient(45deg, #E6F4F1, #99E0FF, #1277B0, #FF4A24);
+z-index: 99;
 }

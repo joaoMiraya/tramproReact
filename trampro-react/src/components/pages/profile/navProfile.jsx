@@ -10,9 +10,9 @@ function NavProfile() {
         <React.Fragment>
 
             <div className="nav-profile-container">
-                <div className="btn-trocarAcc-box">
+               
                     <Link className="btn-trocarAcc" to="/profileContratante">Trocar Contratante</Link>
-                </div>
+               
 
                 <div className="logoutBox">
                     <Link to="/profile/logout"><FiLogOut className="logout" size={25} /></Link>

@@ -1,11 +1,11 @@
 
-  
   .nav{
-  background-color: #06293D;
-  width: 100vw;
+  width: 100%;
   height: 80px;
   display: flex;
   justify-content: space-between;
+  background-color: #06293D;
+
   }
                             /* LOGO TRAMPRO */
   .logo-nav{
@@ -13,11 +13,13 @@
   height: 100%;
   align-items: center;
   margin-left: 30px;
+
   }
   
   .logo-nav h1{
   font-size: 35px;
   transition: .4s;
+  overflow-y: hidden;
   }
   .logo-nav h1:hover{
   opacity: .7;
@@ -36,6 +38,7 @@
                            /*  UL LI NAV */
   .ul-li-box{
   margin-bottom: 5px;
+  overflow-y: hidden;
   }                           
   .ul-li-box ul{
   display: none;
@@ -91,6 +94,7 @@
   }
   .menu-box span{
    margin-top: 4px;
+   margin-right: 20px;
   background-color: #FFF;
   }
   .menu-box button{

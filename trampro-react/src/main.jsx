@@ -13,8 +13,9 @@ import HirerProfile from './components/pages/hirerProfile/hirerProfile';
 import Services from './components/pages/services/services';
 import Login from './components/pages/login/login';
 import Payment from './components/pages/payment/payment';
-
-
+import NewService from './components/pages/profile/newService/newService'
+import FinalForm from './components/pages/profile/newService/finalFormService'
+import ResultSearch from './components/constants/result'
 
 
 /* const router = createBrowserRouter([
@@ -43,12 +44,24 @@ const router = createBrowserRouter([
         element: <Profile />
       },
       {
+        path: "/profile/newService",
+        element: <NewService />
+      },
+      {
+        path: "/profile/newService/final",
+        element: <FinalForm />
+      },
+      {
         path: "/publicProfile",
         element: <ProfilePublic />
       },
       {
         path: "/hirerProfile",
         element: <HirerProfile />
+      },
+      {
+        path: "/result",
+        element: <ResultSearch />
       },
       {
         path: "/services",
