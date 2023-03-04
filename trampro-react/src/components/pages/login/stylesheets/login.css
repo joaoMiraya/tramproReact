@@ -1,29 +1,51 @@
-.containerLoginMain {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #ececec;
+.containerModalLogin {
+    width: 100vw;
     height: 100vh;
+    background-color: #000000a9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 99999;
 }
 
-
-
-fieldset {
-    border: 1px solid #06293D;
-    padding: 15px;
+.ReactModal__Content {
+    border: none !important;
+    border-radius: 0 !important;
+    background-color: #000000a9 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    inset: 0 !important;
 }
-
-fieldset legend {
-    text-align: center;
-}
-
 
 .registerFormContainer {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
+    align-items: center;
     background-color: #FFF;
     padding: 30px;
-
+    border-radius: 5px;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.267);
+    margin-top: 50px;
+    position: absolute;
+}
+.errorBox{
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+background-color: #ff634779;
+border-radius: 10px;
+color: red;
+}
+.closeBtnRegisterModal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
 }
 
 .registerFormContainer div {
@@ -55,11 +77,202 @@ fieldset legend {
     outline: none;
     height: 30px;
     width: 250px;
-    color: #6a6a6a; 
+    color: #6a6a6a;
     font-weight: bold;
 }
-.registerBox select option{
+
+.registerBox select option {
     background-color: #FFF;
     text-align: center;
     font-size: 20px;
+}
+
+.buttonRegisterBox {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.buttonRegisterBox button {
+    border: none;
+    border-radius: 5px;
+    background-color: #06293D;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 18px;
+    padding: 8px 200px;
+    margin-top: 20px;
+    opacity: .9;
+    transition: .5s ease;
+}
+
+.buttonRegisterBox button:hover {
+    opacity: 1;
+}
+
+@media (max-width:650px) {
+    .registerFormContainer {
+        width: 90vw;
+        padding: 20px 10px;
+    }
+
+    .imageBoxRegister {
+        display: none;
+    }
+
+    .registerFormContainer label {
+        font-size: 13px;
+        text-align: center;
+    }
+
+    .registerFormContainer input {
+        width: 100px;
+    }
+
+    .registerBox select {
+        width: 100px;
+    }
+
+    .buttonRegisterBox button {
+        padding: 8px 100px;
+    }
+
+}
+
+/*   REGISTER FORM END */
+
+.loginFormContainer {
+    background-color: #FFF;
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.267);
+    position: relative;
+}
+
+.loginFormContainer h1 {
+    text-align: center;
+    font-weight: bold;
+    color: #06293D;
+    margin-bottom: 10px;
+}
+
+.closeBtnLoginModal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.googleLoginBox {
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid #a7a7a7;
+    border-radius: 4px;
+    padding: 8px;
+    transition: .4s;
+    cursor: pointer;
+}
+
+.googleRegisterBox{
+width: 100%;
+display: flex;
+justify-content: center;
+}
+
+.googleLoginBox:hover {
+    background-color: #eeeeee;
+}
+
+.googleLoginBox svg {
+    margin-left: 10px;
+}
+
+.googleLoginBox p {
+    font-size: 20px;
+    text-align: center;
+    margin: 0;
+    color: #6a6a6a;
+    font-weight: bold;
+}
+
+.hrOr {
+    display: flex;
+    align-items: center;
+    color: #6a6a6a;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.formLoginBox {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formLoginBox div {
+    margin-bottom: 15px;
+}
+
+.formLoginBox input {
+    width: 300px;
+    height: 40px;
+    outline: none;
+    font-size: 20px;
+    padding-left: 10px;
+}
+
+.rememberLoginBox {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.rememberLoginBox label {
+    color: #6a6a6a;
+}
+
+.rememberLoginBox input {
+    height: 15px;
+    width: 15px;
+    margin-right: 15px;
+}
+
+.forgotPassBox {
+    width: 100%;
+    text-align: center;
+}
+
+.forgotPassBox button {
+    background-color: #FFF;
+    border: none;
+    outline: none;
+    color: #ff6347;
+}
+
+.loginButtonBox {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.loginButtonBox button {
+    background-color: #06293D;
+    border: none;
+    border-radius: 3px;
+    color: #FFF;
+    font-weight: bold;
+    padding: 5px 100px;
+    letter-spacing: 2px;
+    opacity: .9;
+    transition: .5s ease;
+}
+
+.loginButtonBox button:hover {
+    opacity: 1;
 }

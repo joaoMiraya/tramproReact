@@ -5,6 +5,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    align-items: center;
+
     }                                           
     .search-container-mobile{
     display:block;
@@ -17,11 +19,11 @@
     }
     .search-text-mobile{
       background-color: aliceblue;
-      width: 60%;
+      width: 600px;
       height: 50px;
       border-radius: 5px;
       border: none;
-      font-size: 30px;
+      font-size: 40px;
       padding: 5px;
       outline: none;
     }
@@ -33,7 +35,7 @@
     }
     .search-btnMobile{
     border-radius: 5px; 
-    width: 60%;
+    width: 600px;
     height: 50px;
     background-color: #FDB139;
      border: none; 
@@ -51,20 +53,26 @@
       flex-wrap: wrap;
       flex-direction: column;
       text-align: center;
+      align-items: start;
+      justify-content: center;
+
     }
     .text-1-mobile,
     .text-2-mobile{
-    font-size: 40px;
-    margin-top: 40px;
+    font-size: 50px;
+  
     color: aliceblue;
     font-family: 'Roboto', sans-serif;
     padding: 10px;
+    overflow-y: hidden;
+
+
     }
     .fazer-mobile,
     .seuServico-mobile{
     font-family: 'Dancing Script', cursive;
-    font-size: 60px;
-   
+    font-size: 80px;
+    overflow-y: hidden;
     color: rgb(253, 177, 57);
     }
 
@@ -78,7 +86,7 @@
 
                               /* MEDIAS QUERIES    */                          
 
-  @media(min-width:1000px){
+  @media(min-width:930px){
     .ul-li-box ul {
     display: flex;
     }
@@ -93,5 +101,14 @@
     }
     .first-viewport-mobile{
     display: none;
+    }
+    } 
+  @media(max-width:630px){
+    .search-btnMobile{
+      width: 90%;
+    }
+    .search-text-mobile{
+      width: 90%;
+
     }
     } 

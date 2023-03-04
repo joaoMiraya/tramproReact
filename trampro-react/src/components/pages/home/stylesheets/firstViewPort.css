@@ -1,89 +1,41 @@
 .container-desktop{
 display: none;
 align-items: center;
-justify-content: space-around;
+justify-content: space-evenly;
 height: 600px;
 background-color: rgb(40, 124, 39);
 }
-.contentSlides{
-height: 100%;
-display: flex;
-flex-direction: column;
-justify-content: flex-start;
-transform: translate(0%, -20%);
+.d-block{
+margin-bottom: 200px;
 }
-.slide{
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
-text-align: center;
-}
-.slide-1{
-animation: slide1Position 1s ease;
-position: relative;
-top: 250px;
-}
-@keyframes slide1Position {
-0%{
-  position: relative;
-  opacity: 0;
-}
-50%{
-  top: 100px;
-  opacity: 0;
-}
-100%{
-  top: 250px;
-}
-}
-
-.slide2Animation{
-z-index: 10;
-}
-.slide-label{
-display: flex;
-justify-content: center;
-}
-.bar-slide{
-width: 50px;
-margin-top: 30px;
-margin: 15px;
-height: 15px;
-border: 2px solid #fff;
-border-radius: 5px;
-cursor: pointer;
-transition: .5s;
-}
-.bar-slide:hover{
-background-color:#fff;
-}
-.input-slide{
-display: none;
-}
-.trabalhar, .contratar{
-color: #fff;
-font-size: 50px;
-}
-.contratarBtnBox, .trabalharBtnBox{
-padding: 20px;
-}
-.carrosselBtn{
-  background-color: #FDB139;
-  border-radius: 5px;
-  border: none;
-  color: #FFF;
-  padding: 10px 20px;
+.carousel-control-next-icon,
+.carousel-control-prev-icon{
+  background-color: #00000073;
+  padding: 15px;
+  border-radius: 50%;
   text-align: center;
-  font-weight: bold;
-  font-size: 16px;  
-  cursor: pointer;
-  letter-spacing: 1px;
-}
-.carrosselBtn:hover{
-opacity: .9;
-}
 
+}
+.carousel-control-next,
+ .carousel-control-prev{
+  z-index: 0;
+}
+.buttonCarousel{
+border: none;
+outline: none;
+background-color:rgb(253, 177, 57);
+padding: 8px 30px;
+border-radius: 5px;
+color: #FFF;
+font-weight: bold;
+transition: .4s ease;
+}
+.buttonCarousel:hover{
+background-color: #F55253 ;
+}
+.carousel{
+width: 40%;
+}
 .fvp-text{
 text-align: center;
 animation: textAnimation 1.5s ease;

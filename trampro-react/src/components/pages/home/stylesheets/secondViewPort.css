@@ -1,8 +1,57 @@
-.subtitle-anuncios{
+.subtitle-anuncios {
     color: rgb(73, 81, 77);
-   text-align: center;
-   font-size: 3rem;
-   padding: 30px;
-   margin-top: 50px;
-   }
-   
+    text-align: center;
+    font-size: 3rem;
+    padding: 30px;
+    margin-top: 50px;
+}
+
+.carouselContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.carouselBox {
+    width: 900px;
+    display: flex;
+    justify-content: center;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+}
+
+.slideBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: #FFF;
+    border-radius: 10px;
+    cursor: pointer;
+    max-width: 350px;
+    transition: .5s ease;
+}
+
+.slideBox img {
+    border-radius: 5px;
+}
+
+.textBoxSlide {
+    max-width: 90%;
+    text-align: center;
+    display: flex;
+}
+
+.subtitle-anuncios2 {
+    color: rgb(73, 81, 77);
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 20px 0px;
+}

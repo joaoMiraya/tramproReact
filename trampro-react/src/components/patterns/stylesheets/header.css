@@ -1,165 +1,209 @@
+.nav {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #06293D;
+    position: relative;
 
-  .nav{
-  width: 100%;
-  height: 80px;
-  display: flex;
-  justify-content: space-between;
-  background-color: #06293D;
+}
 
-  }
-                            /* LOGO TRAMPRO */
-  .logo-nav{
-  display: flex;
-  height: 100%;
-  align-items: center;
-  margin-left: 30px;
+/* LOGO TRAMPRO */
+.logo-nav {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    margin-left: 30px;
 
-  }
-  
-  .logo-nav h1{
-  font-size: 35px;
-  transition: .4s;
-  overflow-y: hidden;
-  }
-  .logo-nav h1:hover{
-  opacity: .7;
-  }
-  .tram{
-  font-family: 'Pacifico', cursive;
-  color: #FFF;
-  }
-  .pro{
-  font-family: 'Roboto', sans-serif;
-  color: rgb(72, 207, 174);
-  font-weight: bold;
-  }
-                            /* FIM LOGO TRAMPRO */
-  
-                           /*  UL LI NAV */
-  .ul-li-box{
-  margin-bottom: 5px;
-  overflow-y: hidden;
-  }                           
-  .ul-li-box ul{
-  display: none;
-  height: 100%;
-  align-items: flex-end;
-  }
-  .ul-li-box ul li{
-  margin-right: 30px;
-  }
-  .ul-li-box ul a{
-  font-size: 22px;
-  color: #FFF;
-  }
-  .ul-li-box ul a:hover{
-  opacity: .6;
-  }
-                         /* FIM  UL LI NAV */
-  .search-box{
-  display: none;
-  height: 100%;
-  align-items: center;
-  }     
-  .search-content {
-  display: flex;
-  align-items: center;
-  }                 
-  .search-box input{
-  height: 35px;
-  width: 320px;
-  font-size: 20px;
-  outline: none;
-  border: none;
-  border-radius: 5px 0px 0px 5px;
-  }
-  .search-box button{
-  background-color:rgb(72, 207, 174);
-  border: none;
-  border-radius: 0px 5px 5px 0px;
-  height: 35px;
-  width: 35px;
-  cursor: pointer;
-  }
-  .search-icon{
-  color: #FFF;
-  }       
-                         /*    BOTÃO HAMBURGER */
-  .menu{
-  cursor: pointer;
-  color: #FFF;
-  }
-  .menu:hover .linha{
-  opacity: .7;
-  }
-  .menu-box span{
-   margin-top: 4px;
-   margin-right: 20px;
-  background-color: #FFF;
-  }
-  .menu-box button{
-  background-color: #06293D;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  margin: 15px 15px 0px 0px;
-  
-  }
-  .linha{
-  position: relative;
-  display: block;
-  width: 20px;
-  height: 2px;
-  transform-origin: center;
-  }
-  button.ativarHamburguer .linha:nth-child(1){
-      transform: translate(3px, 12px) rotate(-45deg);
-  }
-  
-  button.ativarHamburguer .linha:nth-child(3){
-      transform: translate(3px) rotate(45deg);
-  }
-  button.ativarHamburguer .linha:nth-child(2){
-     width: 0;
-  }
-                           /* FIM BOTÃO HAMBURGER */    
-                           
-                           /* MENU MOBILE */
-  .menu-mobile{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  width: 200px;
-  height: 90vh;
-  background-color: #06293D;
-  color: #FFF;
-  position: absolute;
-  right: 2000px;
-  transition: .5s ease-in-out;
-  z-index: 999;
-  }
-  .menuActived{
-  right: 0;
-  }
-  .menu-mobile ul{
-  margin-top: 50px;
-  }                               
-  .box-menu-mobile{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  }
-  .li-menu-mobile a{
-  color: #FFF;
-  font-size: 20px;
-  }
-  .li-menu-mobile a:hover{
-  opacity: .6;
-  }
-  
-  
-  .box-menu-mobile div{
-  margin-left: 5px;
-  margin-top: 15px;
-  }  
+}
+
+.logo-nav h1 {
+    font-size: 35px;
+    transition: .4s;
+    overflow-y: hidden;
+}
+
+.logo-nav h1:hover {
+    opacity: .7;
+}
+
+.tram {
+    font-family: 'Pacifico', cursive;
+    color: #FFF;
+}
+
+.pro {
+    font-family: 'Roboto', sans-serif;
+    color: rgb(72, 207, 174);
+    font-weight: bold;
+}
+
+/* FIM LOGO TRAMPRO */
+
+/*  UL LI NAV */
+.ul-li-box {
+    margin-bottom: 5px;
+    overflow-y: hidden;
+}
+
+.ul-li-box ul {
+    display: none;
+    height: 100%;
+    align-items: flex-end;
+
+}
+
+.ul-li-box ul li {
+    margin-right: 30px;
+    overflow-y: hidden;
+    color: #FFF;
+    cursor: pointer;
+}
+
+.ul-li-box ul  {
+    font-size: 20px;
+    color: #FFF;
+}
+
+.registerNav {
+    border: 1px solid #FFF;
+    border-radius: 5px;
+    padding: 3px 10px;
+    transition: .4s ease;
+}
+.registerNav:hover{
+background-color: #5da8ae;
+border: 1px solid #5da8ae;
+color: #FFF;
+}
+
+.nav-btn:hover {
+    opacity: .6;
+    color: #FFF;
+}
+
+/* FIM  UL LI NAV */
+.search-box {
+    display: none;
+    height: 100%;
+    align-items: center;
+}
+
+.search-content {
+    display: flex;
+    align-items: center;
+}
+
+.search-box input {
+    height: 35px;
+    width: 320px;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    border-radius: 5px 0px 0px 5px;
+}
+
+.search-box button {
+    background-color: rgb(72, 207, 174);
+    border: none;
+    border-radius: 0px 5px 5px 0px;
+    height: 35px;
+    width: 35px;
+    cursor: pointer;
+}
+
+.search-icon {
+    color: #FFF;
+}
+
+/*    BOTÃO HAMBURGER */
+.menu {
+    cursor: pointer;
+    color: #FFF;
+}
+
+.menu:hover .linha {
+    opacity: .7;
+}
+
+.menu-box span {
+    margin-top: 4px;
+    margin-right: 20px;
+    background-color: #FFF;
+}
+
+.menu-box button {
+    background-color: #06293D;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    margin: 15px 15px 0px 0px;
+
+}
+
+.linha {
+    position: relative;
+    display: block;
+    width: 20px;
+    height: 2px;
+    transform-origin: center;
+}
+
+button.ativarHamburguer .linha:nth-child(1) {
+    transform: translate(3px, 12px) rotate(-45deg);
+}
+
+button.ativarHamburguer .linha:nth-child(3) {
+    transform: translate(3px) rotate(45deg);
+}
+
+button.ativarHamburguer .linha:nth-child(2) {
+    width: 0;
+}
+
+/* FIM BOTÃO HAMBURGER */
+
+/* MENU MOBILE */
+.menu-mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+    height: 90vh;
+    background-color: #06293D;
+    color: #FFF;
+    position: absolute;
+    right: 2000px;
+    transition: .5s ease-in-out;
+    z-index: 999;
+}
+
+.menuActived {
+    right: 0;
+}
+
+.menu-mobile ul {
+    margin-top: 50px;
+}
+
+.box-menu-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.li-menu-mobile a {
+    color: #FFF;
+    font-size: 20px;
+}
+
+.li-menu-mobile a:hover {
+    opacity: .6;
+}
+
+
+.box-menu-mobile div {
+    margin-left: 5px;
+    margin-top: 15px;
+}

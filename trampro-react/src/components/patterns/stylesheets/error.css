@@ -1,0 +1,39 @@
+.errorBody {
+    background: linear-gradient(130deg, #ED724E, #FFB44D, #29095C, #000, #06293D);
+
+}
+
+.containerError {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../../../assets/images/errorPageImg.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.erroBox{
+padding: 50px;
+background-color: #F212121F;
+border-radius: 10px;
+margin-top: 50px;
+text-align: center;
+box-shadow: 5px 3px 3px 1px #0000006b;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+.erroBox h1{
+    color: #FFF;
+}
+.linkError{
+    background: linear-gradient(130deg, #ED724E, #FFB44D, #29095C, #06293D);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    color: #FFF;
+     padding: 8px 20px;
+    border-radius: 5px;
+    border: 1px solid #FFF;
+}

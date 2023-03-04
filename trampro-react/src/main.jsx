@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
 
+import { UpdateModal } from '../src/assets/hooks/useModal'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import ErrorPage from './components/patterns/error404';
@@ -83,7 +84,15 @@ const router = createBrowserRouter([
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+
+  <UpdateModal>
+
+    <React.StrictMode>
+
       <RouterProvider router={router} />
-  </React.StrictMode>,
+
+    </React.StrictMode>
+    
+ </UpdateModal>
+ 
 )

@@ -32,7 +32,7 @@ console.log(services)
                     {services.map((service, id) =>
                     <div className="workers-card"  key={id}>
                         <p className="profissao">
-                            {service.nome }
+                            {service.titulo }
                         </p>
                         <div className="work-image-box">
                             <img src="" alt="WorkImage" />
