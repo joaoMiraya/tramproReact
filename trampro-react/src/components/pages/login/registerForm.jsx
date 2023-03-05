@@ -1,9 +1,9 @@
 
 import React from 'react';
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import axios from 'axios';
 
-import { FcGoogle } from 'react-icons/fc'
+
 import imageRegister from '../../../assets/images/default-image.jpg'
 import { AiOutlineClose } from 'react-icons/ai';
 
@@ -27,10 +27,56 @@ function RegisterForm() {
 
     /*  ------------VALIDAÇÃO DO FORMULARIO--------------- */
 
+
+
+
+
+
+    function handleChangeCel(event) {
+        const formattedNumber = formatPhoneNumber(event.target.value);
+        setCel(formattedNumber);
+    }
+
+    const [name, setName] = useState("");
+    const [nameErr, setNameErr] = useState(false);
+    const nameRegisterRef = useRef();
+
+    const [lastName, setLastName] = useState("");
+    const [lastNameErr, setLastNameErr] = useState(false);
+    const lastNameRegisterRef = useRef();
+
+    const [email, setEmail] = useState("");
+    const emailRegisterRef = useRef();
+
+    const [confirmEmail, setConfirmEmail] = useState("");
+    const confirmEmailRef = useRef();
+
+    const [emailErr, setEmailErr] = useState(false);
+    const [diffEmail, setDiffEmail] = useState(false);
+
+
+    const [password, setPassword] = useState("");
+    const passwordRef = useRef();
+
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const confirmPasswordRef = useRef();
+
+    const [passwordErr, setPasswordErr] = useState(false);
+    const [diffPassword, setDiffPassword] = useState(false);
+    const [emptyPassword, setEmptyPassword] = useState(false);
+
     const [cpf, setCPF] = useState('');
+    const cpfRef = useRef();
+    const [cpfErr, setCPFErr] = useState(false);
+
     const [rua, setRua] = useState('');
     const [numeroCasa, setNumeroCasa] = useState('');
 
+
+
+    const [cel, setCel] = useState('');
+    const celRegisterRef = useRef();
+    const [celErr, setCelErr] = useState(false);
 
     useEffect(() => {
         setCPF(formatarCPF(cpf));
@@ -40,75 +86,88 @@ function RegisterForm() {
         setCPF(event.target.value);
     }
 
-    const [cel, setCel] = useState('');
-
-    function handleChangeCel(event) {
-        const formattedNumber = formatPhoneNumber(event.target.value);
-        setCel(formattedNumber);
-    }
-
-    const [name, setName] = useState("");
-    const [nameErr, setNameErr] = useState(false);
-
-    const [lastName, setLastName] = useState("");
-    const [lastNameErr, setLastNameErr] = useState(false);
-
-    const [email, setEmail] = useState("");
-    const [confirmEmail, setConfirmEmail] = useState("");
-    const [emailErr, setEmailErr] = useState(false);
-    const [diffEmail, setDiffEmail] = useState(false);
-
-
-    const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
-    const [passwordErr, setPasswordErr] = useState(false);
-    const [diffPassword, setDiffPassword] = useState(false);
-    const [emptyPassword, setEmptyPassword] = useState(false);
-
-
     function submitForm(e) {
         e.preventDefault();
     }
 
 
-    const validate = () => {
+    const emailValidate = () => {
         if (!validateEmail.test(email)) {
+            console.log('acionou')
+            emailRegisterRef.current.classList.add("invalidInput")
             setEmailErr(true);
         } else {
+            emailRegisterRef.current.classList.add("validInput")
             setEmailErr(false);
         }
         if (confirmEmail === email) {
+            confirmEmailRef.current.classList.add("validInput")
             setDiffEmail(false);
         } else {
             setDiffEmail(true);
+            confirmEmailRef.current.classList.add("invalidInput")
         }
+    }
+    const passwordValidate = () => {
         if (!validatePassword.test(password)) {
+            passwordRef.current.classList.add("invalidInput")
             setPasswordErr(true);
         } else {
+            passwordRef.current.classList.add("validInput")
             setPasswordErr(false);
         }
         if (password.length < 6) {
+            passwordRef.current.classList.add("invalidInput")
             setEmptyPassword(true)
         } else {
+            passwordRef.current.classList.add("validInput")
             setEmptyPassword(false)
         }
         if (confirmPassword === password) {
+            confirmPasswordRef.current.classList.add("invalidInput")
             setDiffPassword(false);
         } else {
             setDiffPassword(true);
+            confirmPasswordRef.current.classList.add("validInput")
+
         }
+    }
+    const validationName = () => {
         if (!validateName.test(name)) {
+            nameRegisterRef.current.classList.add("invalidInput")
             setNameErr(true);
         } else {
+            nameRegisterRef.current.classList.add("validInput")
             setNameErr(false);
         }
-               if (!validateName.test(lastName)) {
+        if (!validateName.test(lastName)) {
+            lastNameRegisterRef.current.classList.add("invalidInput")
             setLastNameErr(true);
         } else {
+            lastNameRegisterRef.current.classList.add("validInput")
             setLastNameErr(false);
         }
-
     }
+    const validateCel = () => {
+        if (cel.length < 13) {
+            setCelErr(true)
+            celRegisterRef.current.classList.add("invalidInput")
+        } else {
+            celRegisterRef.current.classList.add("validInput")
+            setCelErr(false)
+        }
+    }
+    const validateCPF = () => {
+        if (cpf.length < 13) {
+            cpfRef.current.classList.add("invalidInput")
+            setCPFErr(true)
+        } else {
+            cpfRef.current.classList.add("validInput")
+            setCPFErr(false)
+        }
+    }
+
+    /*FIM DAS VALIDAÇÕES  */
 
 
 
@@ -118,6 +177,14 @@ function RegisterForm() {
     const [cities, setCities] = useState([]);
     const [selectedUf, setSelectedUf] = useState("0");
     const [selectedCity, setSelectedCity] = useState("0");
+
+    const ufRegisterRef = useRef();
+    const cityRegisterRef = useRef();
+
+    const registerUfOptionRef = useRef();
+    const registerCityOptionRef = useRef();
+
+
 
     useEffect(() => {
         axios.get('https://servicodados.ibge.gov.br/api/v1/localidades/estados/')
@@ -145,7 +212,7 @@ function RegisterForm() {
 
     const { closeRegisterModal } = useModal();
 
-
+    /*   FORMATA A DATA DE CADASTRO */
     const data_cadastro = Date();
     const formatingDate = data_cadastro.replace(formateDate, "$3/$2/$4");
     const formattedDate = formatingDate.slice(0, 11);
@@ -163,24 +230,26 @@ function RegisterForm() {
         senha: password,
         data_cadastro: formattedDate
     };
-/* 
-       registerUser = (usuarioCadastro) => {
-           fetch("http://localhost:3005/users/", {
-               method: 'POST',
-               headers: { 'Content-Type:': 'application/json' },
-               body: JSON.stringify(usuarioCadastro)
-           })
-               .then(response => {
-                   response.status(201).json();
-               })
-               .catch( err => {
-                   alert("Não foi possivel completar o cadastro!")
-                   console.log(err)
-               })
-       } */
+
+    const registerUser = (usuarioCadastro) => {
+        fetch("http://localhost:3005/users/", {
+            method: 'POST',
+            headers: { 'Content-Type:': 'application/json' },
+            body: JSON.stringify(usuarioCadastro)
+        })
+            .then(response => {
+                response.status(201).json();
+            })
+            .catch(err => {
+                alert("Não foi possivel completar o cadastro!")
+                console.log(err)
+            })
+    }
 
 
     console.log(usuarioCadastro)
+
+
     return (
         <React.Fragment>
             <div className='containerModalLogin'>
@@ -197,20 +266,25 @@ function RegisterForm() {
                             <input
                                 type="text"
                                 name="registerEmail"
+                                className='registerInputs'
                                 id="registerEmail" placeholder="aaa@email.com"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
+                                onBlur={emailValidate}
+                                ref={emailRegisterRef}
                                 required
                             />
-
                             <label htmlFor="registerConfirmEmail">Confirme seu Email: </label> <br />
                             <input
                                 type="text"
                                 name="registerConfirmEmail"
                                 id="registerConfirmEmail"
+                                className='registerInputs'
                                 placeholder="aaa@email.com"
                                 value={confirmEmail}
                                 onChange={(e) => setConfirmEmail(e.target.value)}
+                                onBlur={emailValidate}
+                                ref={confirmEmailRef}
                                 required
                             />
 
@@ -220,10 +294,13 @@ function RegisterForm() {
                             <label htmlFor="registerSenha">Senha: </label> <br />
                             <input
                                 type="password"
+                                ref={passwordRef}
                                 name="registerSenha"
                                 id="registerSenha"
+                                className='registerInputs'
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
+                                onBlur={passwordValidate}
                                 required
                             />
 
@@ -231,9 +308,12 @@ function RegisterForm() {
                             <input
                                 type="password"
                                 name="registerConfirmSenha"
+                                ref={confirmPasswordRef}
                                 id="registerConfirmSenha"
+                                className='registerInputs'
                                 value={confirmPassword}
                                 onChange={(e) => setConfirmPassword(e.target.value)}
+                                onBlur={passwordValidate}
                                 required
                             />
                         </div>
@@ -243,9 +323,12 @@ function RegisterForm() {
                             <input
                                 type="text"
                                 name="registerNome"
+                                ref={nameRegisterRef}
                                 id="registerNome"
+                                className='registerInputs'
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
+                                onBlur={validationName}
                                 required
                             />
 
@@ -253,9 +336,12 @@ function RegisterForm() {
                             <input
                                 type="text"
                                 name="registerSobrenome"
+                                ref={lastNameRegisterRef}
                                 id="registerSobrenome"
+                                className='registerInputs'
                                 value={lastName}
                                 onChange={(e) => setLastName(e.target.value)}
+                                onBlur={validationName}
                                 required
                             />
                         </div>
@@ -266,10 +352,13 @@ function RegisterForm() {
                                 type="text"
                                 name="cpf"
                                 id="cpf"
+                                ref={cpfRef}
+                                className='registerInputs'
                                 placeholder="XXX.XXX.XXX-XX"
                                 maxLength={11}
                                 value={cpf}
                                 onChange={handleChangeCPF}
+                                onBlur={validateCPF}
                                 required
                             />
 
@@ -277,18 +366,24 @@ function RegisterForm() {
                             <input
                                 type="text"
                                 name="registerTelefone"
+                                ref={celRegisterRef}
                                 id="registerTelefone"
+                                className='registerInputs'
                                 maxLength={11}
                                 placeholder="(XX) XXXXX-XXXX"
                                 value={cel}
                                 onChange={handleChangeCel}
+                                onBlur={validateCel}
                                 required
                             />
                         </div>
 
                         <div className='registerBox'>
 
-                            <select name="registerUf" id="registerUf" onChange={handlerSelectUf}>
+                            <select name="registerUf"
+                                className='registerSelect'
+                                id="registerUf"
+                                onChange={handlerSelectUf}>
                                 <option value="0">Selecione o Estado</option>
                                 {ufs.map((uf) => (
                                     <option key={uf.id} value={uf.sigla}>{uf.nome}</option>
@@ -296,6 +391,7 @@ function RegisterForm() {
                             </select>
 
                             <select name="registerCidade"
+                                className='registerSelect'
                                 value={selectedCity}
                                 id="registerCidade"
                                 onChange={handlerSelectCity}
@@ -309,22 +405,24 @@ function RegisterForm() {
                         </div>
 
                         <div className='registerBox'>
-                            <label for="registerRua">Rua: </label> <br />
+                            <label htmlFor="registerRua">Rua: </label> <br />
                             <input
                                 type="text"
                                 name="registerRua"
                                 id="registerRua"
+                                className='registerInputs'
                                 value={rua}
                                 onChange={(e) => setRua(e.target.value)}
                                 required
 
                             />
 
-                            <label for="registerNumero">Número da casa: </label> <br />
+                            <label htmlFor="registerNumero">Número da casa: </label> <br />
                             <input
                                 type="text"
                                 name="registerNumero"
                                 id="registerNumero"
+                                className='registerInputs'
                                 value={numeroCasa}
                                 onChange={(e) => setNumeroCasa(e.target.value)}
                                 required
@@ -337,7 +435,7 @@ function RegisterForm() {
                         </div>
 
                         <div className='buttonRegisterBox'>
-                            <button type='button' onClick={validate} >CADASTRAR</button>
+                            <button type='button'  >CADASTRAR</button>
                         </div>
 
                         <div className='errorBox'>
@@ -348,6 +446,8 @@ function RegisterForm() {
                             {diffEmail && <p>Os email estão diferentes!</p>}
                             {nameErr && <p>Digite um nome válido!</p>}
                             {lastNameErr && <p>Digite um sobrenome válido!</p>}
+                            {cpfErr && <p>Digite um CPF válido</p>}
+                            {celErr && <p>Digite um telefone válido</p>}
 
                         </div>
 

@@ -59,9 +59,24 @@ color: red;
     font-weight: bold;
 }
 
-.registerFormContainer input {
+/* .registerFormContainer input {
     border: none;
     border-bottom: 1px solid #6a6a6a;
+    outline: none;
+} */
+.registerInputs {
+    border: none;
+    border-bottom: 1px solid #6a6a6a;
+    outline: none;
+}
+.invalidInput {
+    border: none;
+    border-bottom: 1px solid #ff6347;
+    outline: none;
+}
+.validInput {
+    border: none;
+    border-bottom: 1px solid #32CD32;
     outline: none;
 }
 
@@ -72,7 +87,7 @@ color: red;
     align-items: center;
 }
 
-.registerBox select {
+.registerSelect {
     border: 1px solid #6a6a6a;
     outline: none;
     height: 30px;
@@ -80,12 +95,35 @@ color: red;
     color: #6a6a6a;
     font-weight: bold;
 }
+.registerSelect.registerInvalidSelect {
+    border: 1px solid #ff6347;
+    outline: none;
+    height: 30px;
+    width: 250px;
+    color: #6a6a6a;
+    font-weight: bold;
+}
+.registerValidSelect {
+    border: 1px solid #32CD32;
+    outline: none;
+    height: 30px;
+    width: 250px;
+    color: #6a6a6a;
+    font-weight: bold;
+}
+
+.registerSelect option {
+    background-color: #FFF;
+    text-align: center;
+    font-size: 20px;
+}
 
 .registerBox select option {
     background-color: #FFF;
     text-align: center;
     font-size: 20px;
 }
+
 
 .buttonRegisterBox {
     width: 100%;
