@@ -1,30 +1,31 @@
 import jwt_decode from "jwt-decode";
 import axios from "axios";
-import { formateDate } from "./regex";
 
-
-const data_cadastro = Date();
-const formatingDate = data_cadastro.replace(formateDate, "$3/$2/$4");
-const formattedDate = formatingDate.slice(0, 11);
 
 export function handleCredentialResponse(response) {
     const data = jwt_decode(response.credential)
 
-    const googleUser = {
-        nome: data.given_name,
-        sobrenome: data.family_name,
+    const userGoogle = {
         email: data.email,
-        foto: data.picture,
-        data_cadastro: formattedDate,
-        id_google: data.sub
+        google_Id: data.sub
     }
-
-    axios.post('http://localhost:3005/googleUsers', googleUser)
-        .then(() => {
-            window.location.reload()
+    console.log(userGoogle)
+    axios.get('http://localhost:3005/googleUsers')
+        .then(response => {
+            let users = response.data
+            const foundUser = users.find(user => user.email === userGoogle.email)
+            if (foundUser) {
+                // Usuário encontrado com o mesmo email, faça algo com ele aqui
+                console.log('Usuário encontrado:', foundUser)
+            } else {
+                // Usuário não encontrado
+                console.log('Usuário não encontrado com o email:', userGoogle.email)
+            }
         })
-        .catch((error) => console.log(error));
+
+
 }
+
 
 
 export function initializeGoogleSignIn() {
@@ -36,18 +37,20 @@ export function initializeGoogleSignIn() {
 
 export function renderGoogleSignInButton() {
     google.accounts.id.renderButton(
-        document.getElementById("buttonDiv"),
+        document.getElementById("buttonLoginDiv"),
         {
             theme: "outline",
             size: "large",
             type: "standard",
             shape: "rectangular",
-            text: "signup_with.",
+            text: "signin_with.",
             logo_alignment: "left",
             width: "300"
         }  // customization attributes
     );
 }
+
+
 
 export function displayGoogleSignInDialog() {
     google.accounts.id.prompt(); // also display the One Tap dialog

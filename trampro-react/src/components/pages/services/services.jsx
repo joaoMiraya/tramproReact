@@ -2,15 +2,15 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-
 import { FaHeart } from 'react-icons/fa';
 import './stylesheets/services.css'
+import axios from "axios";
 
 function Services(props) {
     const [services, setServices] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:3002/servicos')
+        axios.get('http://localhost:3002/servicos')
             .then(serviceReturn => serviceReturn.json())
             .then(data => {
                 setServices(data)

@@ -3,6 +3,7 @@ import React from 'react';
 import { useEffect, useState, useRef } from "react";
 import axios from 'axios';
 
+import { useNavigate } from 'react-router-dom';
 
 import imageRegister from '../../../assets/images/default-image.jpg'
 import { AiOutlineClose } from 'react-icons/ai';
@@ -16,8 +17,7 @@ import { initializeGoogleSignIn, renderGoogleSignInButton, displayGoogleSignInDi
 
 function RegisterForm() {
 
-
-    /*  REGISTER GOOGLE */
+      /*  REGISTER GOOGLE */
     useEffect(() => {
         initializeGoogleSignIn();
         renderGoogleSignInButton();
@@ -26,10 +26,6 @@ function RegisterForm() {
 
 
     /*  ------------VALIDAÇÃO DO FORMULARIO--------------- */
-
-
-
-
 
 
     function handleChangeCel(event) {
@@ -54,7 +50,6 @@ function RegisterForm() {
     const [emailErr, setEmailErr] = useState(false);
     const [diffEmail, setDiffEmail] = useState(false);
 
-
     const [password, setPassword] = useState("");
     const passwordRef = useRef();
 
@@ -72,8 +67,6 @@ function RegisterForm() {
     const [rua, setRua] = useState('');
     const [numeroCasa, setNumeroCasa] = useState('');
 
-
-
     const [cel, setCel] = useState('');
     const celRegisterRef = useRef();
     const [celErr, setCelErr] = useState(false);
@@ -86,26 +79,20 @@ function RegisterForm() {
         setCPF(event.target.value);
     }
 
-    function submitForm(e) {
-        e.preventDefault();
-    }
-
-
     const emailValidate = () => {
         if (!validateEmail.test(email)) {
-            console.log('acionou')
             emailRegisterRef.current.classList.add("invalidInput")
             setEmailErr(true);
         } else {
             emailRegisterRef.current.classList.add("validInput")
             setEmailErr(false);
         }
-        if (confirmEmail === email) {
+        if (confirmEmail === email && validateEmail.test(confirmEmail)) {
             confirmEmailRef.current.classList.add("validInput")
             setDiffEmail(false);
         } else {
-            setDiffEmail(true);
             confirmEmailRef.current.classList.add("invalidInput")
+            setDiffEmail(true);
         }
     }
     const passwordValidate = () => {
@@ -116,19 +103,19 @@ function RegisterForm() {
             passwordRef.current.classList.add("validInput")
             setPasswordErr(false);
         }
-        if (password.length < 6) {
-            passwordRef.current.classList.add("invalidInput")
-            setEmptyPassword(true)
-        } else {
+        if (password.length > 6 && validatePassword.test(password)) {
             passwordRef.current.classList.add("validInput")
             setEmptyPassword(false)
+        } else {
+            passwordRef.current.classList.add("invalidInput")
+            setEmptyPassword(true)
         }
-        if (confirmPassword === password) {
-            confirmPasswordRef.current.classList.add("invalidInput")
+        if (confirmPassword === password && validatePassword.test(confirmPassword)) {
+            confirmPasswordRef.current.classList.add("validInput")
             setDiffPassword(false);
         } else {
             setDiffPassword(true);
-            confirmPasswordRef.current.classList.add("validInput")
+            confirmPasswordRef.current.classList.add("invalidInput")
 
         }
     }
@@ -167,7 +154,7 @@ function RegisterForm() {
         }
     }
 
-    /*FIM DAS VALIDAÇÕES  */
+    /*  ------------FIM DA VALIDAÇÃO DO FORMULARIO--------------- */
 
 
 
@@ -177,14 +164,6 @@ function RegisterForm() {
     const [cities, setCities] = useState([]);
     const [selectedUf, setSelectedUf] = useState("0");
     const [selectedCity, setSelectedCity] = useState("0");
-
-    const ufRegisterRef = useRef();
-    const cityRegisterRef = useRef();
-
-    const registerUfOptionRef = useRef();
-    const registerCityOptionRef = useRef();
-
-
 
     useEffect(() => {
         axios.get('https://servicodados.ibge.gov.br/api/v1/localidades/estados/')
@@ -210,6 +189,8 @@ function RegisterForm() {
         setSelectedCity(city);
     }
 
+
+    const navigateTo = useNavigate();
     const { closeRegisterModal } = useModal();
 
     /*   FORMATA A DATA DE CADASTRO */
@@ -217,7 +198,8 @@ function RegisterForm() {
     const formatingDate = data_cadastro.replace(formateDate, "$3/$2/$4");
     const formattedDate = formatingDate.slice(0, 11);
 
-    const usuarioCadastro = {
+    /* REGISTRO DE USUARIOS */
+    const user = {
         nome: name,
         sobrenome: lastName,
         cpf: cpf,
@@ -230,24 +212,14 @@ function RegisterForm() {
         senha: password,
         data_cadastro: formattedDate
     };
-
-    const registerUser = (usuarioCadastro) => {
-        fetch("http://localhost:3005/users/", {
-            method: 'POST',
-            headers: { 'Content-Type:': 'application/json' },
-            body: JSON.stringify(usuarioCadastro)
-        })
-            .then(response => {
-                response.status(201).json();
+    const handleRegisterSubmit = (e) => {
+        e.preventDefault();
+        axios.post('http://localhost:3005/users', user)
+            .then(() => {
+                window.location.reload()
             })
-            .catch(err => {
-                alert("Não foi possivel completar o cadastro!")
-                console.log(err)
-            })
+            .catch((error) => console.log(error));
     }
-
-
-    console.log(usuarioCadastro)
 
 
     return (
@@ -260,7 +232,7 @@ function RegisterForm() {
                         <img src={imageRegister} alt="img" width={300} height={300} />
                     </div>
 
-                    <form action="#" method='POST'>
+                    <form onSubmit={handleRegisterSubmit}>
                         <div className='registerBox'>
                             <label htmlFor="registerEmail">Email: </label> <br />
                             <input
@@ -383,7 +355,9 @@ function RegisterForm() {
                             <select name="registerUf"
                                 className='registerSelect'
                                 id="registerUf"
-                                onChange={handlerSelectUf}>
+                                onChange={handlerSelectUf}
+                                required
+                            >
                                 <option value="0">Selecione o Estado</option>
                                 {ufs.map((uf) => (
                                     <option key={uf.id} value={uf.sigla}>{uf.nome}</option>
@@ -435,7 +409,7 @@ function RegisterForm() {
                         </div>
 
                         <div className='buttonRegisterBox'>
-                            <button type='button'  >CADASTRAR</button>
+                            <button type='submit'>CADASTRAR</button>
                         </div>
 
                         <div className='errorBox'>
@@ -448,7 +422,6 @@ function RegisterForm() {
                             {lastNameErr && <p>Digite um sobrenome válido!</p>}
                             {cpfErr && <p>Digite um CPF válido</p>}
                             {celErr && <p>Digite um telefone válido</p>}
-
                         </div>
 
 

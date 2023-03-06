@@ -12,7 +12,6 @@ import Profile from './components/pages/profile/profile';
 import ProfilePublic from './components/pages/profilePublic/profilePublic';
 import HirerProfile from './components/pages/hirerProfile/hirerProfile';
 import Services from './components/pages/services/services';
-import Login from './components/pages/login/login';
 import Payment from './components/pages/payment/payment';
 import NewService from './components/pages/profile/newService/newService'
 import FinalForm from './components/pages/profile/newService/finalFormService'
@@ -68,11 +67,7 @@ const router = createBrowserRouter([
         path: "/services",
         element: <Services />
       },
-      {
-        path: "/login",
-        element: <Login />
-      },
-      {
+          {
         path: "/payment",
         element: <Payment />
       }

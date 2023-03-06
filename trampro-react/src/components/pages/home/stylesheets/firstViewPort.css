@@ -20,6 +20,10 @@ margin-bottom: 200px;
  .carousel-control-prev{
   z-index: 0;
 }
+.carousel-indicators{
+  z-index: 0;
+}
+
 .buttonCarousel{
 border: none;
 outline: none;
