@@ -1,11 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
+import { createBrowserRouter, RouterProvider, Routes, Route  } from 'react-router-dom'
 import './index.css'
 
+import StoreProvider from './assets/utils/LoginUtils/Provider'
 import { UpdateModal } from '../src/assets/hooks/useModal'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import RoutesPrivate from './components/Routes/Private'
 
+/*    ---------COMPONENTS IMPORT------------- */
 import ErrorPage from './components/patterns/error404';
 import Home from './components/pages/home/home';
 import Profile from './components/pages/profile/profile';
@@ -67,7 +70,7 @@ const router = createBrowserRouter([
         path: "/services",
         element: <Services />
       },
-          {
+      {
         path: "/payment",
         element: <Payment />
       }
@@ -83,11 +86,13 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <UpdateModal>
 
     <React.StrictMode>
+      <StoreProvider>
 
-      <RouterProvider router={router} />
+        <RouterProvider router={router} />
 
+      </StoreProvider>
     </React.StrictMode>
-    
- </UpdateModal>
- 
+
+  </UpdateModal>
+
 )

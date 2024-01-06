@@ -9,6 +9,9 @@ import axios from "axios";
 function Services(props) {
     const [services, setServices] = useState([])
 
+    /* CASO DE ERRO NA CHAMA DA API É PQ NÃO PRECISA TRANSFORMAR A RESPOSTA EM
+                       .json() ELA JA VEM POR PADRAO */
+
     useEffect(() => {
         axios.get('http://localhost:3002/servicos')
             .then(serviceReturn => serviceReturn.json())
@@ -17,22 +20,18 @@ function Services(props) {
             })
             .catch(err => console.log(err))
     }, []);
-console.log(services)
-    useEffect(() => {
-        return () => console.log('objeto desmontado')
-    }, [])
 
     return (
         <React.Fragment>
-                <div className="anuncios-container">
-                    <div className="title-anuncios">
-                        <h3>Conheça os profissionais disponíveis: </h3>
+            <div className="anuncios-container">
+                <div className="title-anuncios">
+                    <h3>Conheça os profissionais disponíveis: </h3>
+                </div>
 
-                    </div>
-                    {services.map((service, id) =>
-                    <div className="workers-card"  key={id}>
+                {services.map((service, id) =>
+                    <div className="workers-card" key={id}>
                         <p className="profissao">
-                            {service.titulo }
+                            {service.titulo}
                         </p>
                         <div className="work-image-box">
                             <img src="" alt="WorkImage" />
@@ -49,7 +48,7 @@ console.log(services)
                             <div className="worker-name">
                                 <Link href="">
                                     <h3>
-                                        {service.Usuario.nome + ' ' + service.Usuario.sobrenome }
+                                        {service.Usuario.nome + ' ' + service.Usuario.sobrenome}
                                     </h3>
                                 </Link>
                             </div>
@@ -69,9 +68,9 @@ console.log(services)
                             <div className="contratar-box contratar-btn">Contratar</div>
                         </a>
                     </div>
-                       )}
-                </div>
-         
+                )}
+            </div>
+
         </React.Fragment>
 
     )

@@ -17,7 +17,7 @@ import { initializeGoogleSignIn, renderGoogleSignInButton, displayGoogleSignInDi
 
 function RegisterForm() {
 
-      /*  REGISTER GOOGLE */
+    /*  REGISTER GOOGLE */
     useEffect(() => {
         initializeGoogleSignIn();
         renderGoogleSignInButton();
